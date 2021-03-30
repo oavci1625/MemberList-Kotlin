@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Yasin Cetiner",
+    "age": 30,
+    "location": "Istanbul",
+    "github": "artizco",
+    "hipo": {
+      "position": "Android Developer",
+      "years_in_hipo": 2
+    }
+  },
+  {
+    "name": "Tolga Can Unal",
+    "age": 25,
+    "location": "Istanbul",
+    "github": "tolgacanunal",
+    "hipo": {
+      "position": "Android Developer",
+      "years_in_hipo": 2
+    }
+  },
+  {
+    "name": "Mithat Sinan Sari",
+    "age": 26,
+    "location": "Istanbul",
+    "github": "mitsinsar",
+    "hipo": {
+      "position": "Android Developer",
+      "years_in_hipo": 1
+    }
+  }
+]
