@@ -17,6 +17,7 @@ var members: MemberList = MemberList()
 var filteredMembers: MemberList = MemberList()
 var icons = arrayOf(R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4);
 class MainActivity : AppCompatActivity() {
+    //This method gets the json file and instantiate members and filteredMembers
     private fun makeRequest(){
         val json : String?
         try {
@@ -30,12 +31,14 @@ class MainActivity : AppCompatActivity() {
         catch(e : IOException){}
     }
 
+    //This method adds a new member, also updates the filteredMembers and UI
     private fun add(member: Member){
         members.list.add(member)
         filteredMembers = MemberList(members)
         updateArray()
     }
 
+    //This method filters members and save them to filteredMembers
     private fun filter(name: String){
         filteredMembers.list.clear()
         for(i in 0 until members.list.size)
@@ -46,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         updateArray()
     }
 
+    //This method updates the UI
     private fun updateArray(){
         //Actually we could only use notifyDataSetChanged() method however it does not work with adapter.filter() method
         val lv_listView = findViewById<ListView>(R.id.lv_listView)
