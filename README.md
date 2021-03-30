@@ -6,7 +6,7 @@ Hipo.kt: This is a simple class which has two properties: 'position' is a string
 
 Member.kt: This is a relatively more complicated class. It has basic properties like name, age, location, etc. It has a specific constructor which is constructor(json: JSONObject) : this(). This constructor gets a json map and creates a member from this. Also it has a copy method which returns a clone instance of itself
 
-MemberList.kt: This class again has a simple interface. It contains a list of members inside. It has to different constructors:
+MemberList.kt: This class again has a simple interface. It contains a list of members inside. It has two different constructors:
 	constructor(json: JSONArray) : this() => This constructor creates member list from JSONarray
 	constructor(memberList: MemberList): this() => This one is copy constructor
 
