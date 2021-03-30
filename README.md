@@ -9,6 +9,7 @@ Member.kt: This is a relatively more complicated class. It has basic properties 
 MemberList.kt: This class again has a simple interface. It contains a list of members inside. It has to different constructors:
 
 constructor(json: JSONArray) : this() => This constructor creates member list from JSONarray
+
 constructor(memberList: MemberList): this() => This one is copy constructor
 
 At initialization of the program, makeRequest() method is called which gets the json file from assets of the project and intiliaze MemberList object. Member list is created from the array called filteredMemberList. At first it is same with memberList list, but as users are searching for names, this list is modified which also affects the UI accordingly.
