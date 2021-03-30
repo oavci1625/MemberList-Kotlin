@@ -23,7 +23,7 @@ class Profile : AppCompatActivity() {
 
         val id = intent.getIntExtra("id", 0)
         val name= intent.getStringExtra("name")
-        val age= intent.getStringExtra("age")
+        val age= intent.getIntExtra("age", 0)
         val location= intent.getStringExtra("location")
         val github= intent.getStringExtra("github")
         val position= intent.getStringExtra("position")
@@ -31,7 +31,7 @@ class Profile : AppCompatActivity() {
 
         tv_image.setImageResource(icons[id.toInt() % 4])
         tv_name.text = name
-        tv_age.text = age
+        tv_age.text = age.toString()
         tv_location.text = location
         tv_github.text = github
         tv_position.text = position
