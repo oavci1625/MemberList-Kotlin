@@ -14,4 +14,4 @@ At initialization of the program, makeRequest() method is called which gets the 
 
 Lastly, 'ADD NEW USER' button creates a new instance of member who is me (Onuralp AVCI). It is added to the memberList and at the same time filteredMemberList is also updated. User can add as many new users as they want. Scroll view let's use to see every user in one single page.
 
-Sample video of the app: https://drive.google.com/file/d/1G20TrrBEBjFbphkeONY2DTyvOOKClc2C/view?usp=sharing
+Sample video of the app: https://drive.google.com/file/d/1GnLOs9rI508Ey2Al2qH-XX9yYKFyi1oH/view?usp=sharing
