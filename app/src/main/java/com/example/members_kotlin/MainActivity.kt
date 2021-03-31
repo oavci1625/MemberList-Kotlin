@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun add(member: Member){
         members.list.add(member)
         filteredMembers = MemberList(members)
-        updateArray()
+        updateUI()
     }
 
     //This method filters members and save them to filteredMembers
@@ -46,11 +46,11 @@ class MainActivity : AppCompatActivity() {
             if(members.list[i].name.toLowerCase().contains(name.toLowerCase()))
                 filteredMembers.list.add(members.list[i])
         }
-        updateArray()
+        updateUI()
     }
 
     //This method updates the UI
-    private fun updateArray(){
+    private fun updateUI(){
         //Actually we could only use notifyDataSetChanged() method however it does not work with adapter.filter() method
         val lv_listView = findViewById<ListView>(R.id.lv_listView)
         lv_listView.adapter= MyAdapter(this, filteredMembers.list)
