@@ -4,7 +4,7 @@
     <string name="extended_fab_label">ADD NEW MEMBER</string>
     <string name="profile_location">Location:</string>
     <string name="profile_github">Github:</string>
-    <string name="profile_position">Positon:</string>
+    <string name="profile_position">Position:</string>
     <string name="profile_years">Years in Hipo:</string>
     <string-array name="countries_array">
         <item>Afghanistan</item>
