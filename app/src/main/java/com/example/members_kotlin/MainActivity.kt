@@ -15,7 +15,11 @@ import java.io.InputStream
 
 var members: MemberList = MemberList()
 var filteredMembers: MemberList = MemberList()
-var icons = arrayOf(R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4);
+var defaultIcons = mapOf("Yasin Cetiner" to R.drawable.avatar1, "Tolga Can Unal" to R.drawable.avatar2, "Mithat Sinan Sari" to R.drawable.avatar3);
+var randomIcons = arrayOf(R.drawable.avatar4, R.drawable.avatar5, R.drawable.avatar6, R.drawable.avatar7, R.drawable.avatar8, R.drawable.avatar9, R.drawable.avatar10
+        , R.drawable.maskavatar1, R.drawable.maskavatar2, R.drawable.maskavatar3, R.drawable.maskavatar4, R.drawable.maskavatar5, R.drawable.maskavatar6, R.drawable.maskavatar7
+        , R.drawable.maskavatar8, R.drawable.maskavatar9, R.drawable.maskavatar10);
+var numberOfRandomIcons: Int = 17
 class MainActivity : AppCompatActivity() {
     //This method gets the json file and instantiate members and filteredMembers
     private fun makeRequest(){
@@ -65,13 +69,13 @@ class MainActivity : AppCompatActivity() {
         lv_listView.adapter= MyAdapter(this, filteredMembers.list)
         lv_listView.onItemClickListener = AdapterView.OnItemClickListener{ parent, view, position, id ->
             val intent = Intent(this, Profile::class.java)
-            intent.putExtra("id", position)
             intent.putExtra("name", filteredMembers.list[position].name)
             intent.putExtra("age", filteredMembers.list[position].age)
             intent.putExtra("location", filteredMembers.list[position].location)
             intent.putExtra("github", filteredMembers.list[position].github)
             intent.putExtra("position", filteredMembers.list[position].hipo.position)
             intent.putExtra("years", filteredMembers.list[position].hipo.yearsInHipo.toString())
+            intent.putExtra("imageIndex", filteredMembers.list[position].imageIndex)
             startActivity(intent)
         }
         val tv_emptyTextView = findViewById<TextView>(R.id.tv_emptyTextView)
@@ -81,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             var myHipo: Hipo = Hipo("Intern", 0)
             var me: Member = Member("Onuralp Avci", 20, "Bursa", "oavci1625", myHipo)
+            me.setRandomImageIndex(numberOfRandomIcons)
             add(me)
         }
     }
@@ -134,7 +139,13 @@ class MyAdapter(private val context: Context, private val members: java.util.Arr
         name.text = members[position].name
         age.text = "Age: " + members[position].age
         location.text = "Location: " + members[position].location
-        image.setImageResource(icons[position % 4])
+        //Users' images in json file are hardcoded and this if checks if they are in the defaultIconMap
+        if(defaultIcons.containsKey(name.text.toString()))
+            defaultIcons.get(name.text.toString())?.let { image.setImageResource(it) }
+        //If they are not a default member a random image is assigned to user from randomIcons array
+        else
+            image.setImageResource(randomIcons[members[position].imageIndex])
+
         return convertView
     }
 }
